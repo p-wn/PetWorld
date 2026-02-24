@@ -7,7 +7,7 @@ public class OpenTrigger : MonoBehaviour
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
+       // anim = GetComponent<Animator>();
     }
 
     private void OnTriggerEnter(Collider other)
