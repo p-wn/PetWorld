@@ -66,6 +66,15 @@ public class PetOnlyPatrol : MonoBehaviour
     {
         // 1. 잡혔을 때와 놓았을 때의 처리
         HandleGrabState();
+
+        if(navMeshAgent.hasPath)
+        {
+            anim.SetBool("isWalk", true);
+        }
+        else
+        {
+            anim.SetBool("isWalk", false);
+        }
     }
     IEnumerator PatrolRoutine()
     {
