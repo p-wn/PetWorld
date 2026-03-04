@@ -5,8 +5,10 @@ public class PetHeadTouch : MonoBehaviour
     public int touchTime = 0;
     public ParticleSystem heartFX;
     ParticleSystem.EmissionModule em;
+    Animator anim;
     private void Start()
     {
+        anim = GetComponentInParent<Animator>();
         if(heartFX == null)
         {
             heartFX = GetComponentInChildren<ParticleSystem>();
@@ -27,6 +29,8 @@ public class PetHeadTouch : MonoBehaviour
     {
         if (other.CompareTag("Hand"))
         {
+            
+            anim.SetBool("isAction", false);
             touchTime = 0;
             em.rateOverTime = 0;
         }
@@ -39,6 +43,7 @@ public class PetHeadTouch : MonoBehaviour
             if(touchTime == 100)
             {
                 em.rateOverTime = 5f;
+                anim.SetBool("isAction", true);
             }
 
         }
